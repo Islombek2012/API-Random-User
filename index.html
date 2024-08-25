@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Generate Random User</title>
+      <style>
+            body{
+                  height: 100vh;
+                  display: grid;
+                  place-items: center;
+                  margin: 0;
+                  font-family: sans-serif;
+            }
+            .container{
+                  width: 80%;
+                  margin: 0 auto;
+                  padding: 60px;
+                  border-radius: 20px;
+                  background-color: rgba(97, 97, 97, 0.785);
+                  color: #fff;
+                  border: 3px solid rgb(165, 165, 165);
+                  box-shadow: 0 0 10px 10px #999;
+            }
+            .container.male{
+                  background-color: rgb(21, 21, 255);
+            }
+            .container.female{
+                  background-color: rgb(255, 128, 149);
+            }
+            .row{
+                  display: flex;
+                  gap: 40px;
+            }
+            .image img{
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 12px;
+            }
+            .image{
+                  width: 350px;
+                  border: 2px solid #555;
+                  border-radius: 12px;
+                  position: relative;
+                  margin-bottom: 30px;
+            }
+            .abso{
+                  position: absolute;
+                  bottom: 0;
+                  opacity: 0;
+                  transition: 0.3s;
+                  width: 70%;
+                  left: 50%;
+                  transform: translate(-50%);
+                  backdrop-filter: blur(15px);
+                  border-radius: 12px;
+            }
+            .abso-title{
+                  text-align: center;
+            }
+            .image:hover .abso{
+                  opacity: 1;
+                  bottom: 50px;
+            }
+            .main{
+                  width: 100%;
+            }
+            .header{
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 30px;
+                  width: 100%;
+            }
+            .btn{
+                  padding: 12px 14px;
+                  border-radius: 8px;
+                  border: 2px solid #555;
+                  font-size: 20px;
+                  box-shadow: 0 0 10px 10px #666;
+                  color: white;
+                  background-color: #000;
+                  cursor: pointer;
+            }
+            .container.male .btn{
+                  background-color: rgb(21, 21, 255);
+            }
+            .container.female .btn{
+                  background-color: rgb(255, 128, 149);
+            }
+            .table{
+                  width: 100%;
+                  border-collapse: collapse;
+                  border: 5px solid #666;
+            }
+            td{
+                  border: 5px solid #666;
+                  padding: 10px;
+            }
+      </style>
+</head>
+<body>
+      
+      <div class="container">
+            <div class="row">
+                  <div class="sidebar">
+                        <div class="image">
+                              <img src="https://picsum.photos/300/300" alt="">
+                              <div class="abso">
+                                    <h1 class="abso-title">Jon Doe</h1>
+                              </div>
+                        </div>
+                        <div class="username">Username: <span></span></div>
+                        <div class="password">Password: <span></span></div>
+                  </div>
+                  <div class="main">
+                       <div  class="header">
+                              <h1>Jon Doe</h1>
+                              <button class="btn">Generate me...</button>
+                       </div>
+                       <table class="table">
+                              <tr>
+                                    <td class="key">Title</td>
+                                    <td class="value">1</td>
+                              </tr>
+                              <tr>
+                                    <td class="key">Desc</td>
+                                    <td class="value">2</td>
+                              </tr>
+                              <tr>
+                                    <td class="key">About</td>
+                                    <td class="value">3</td>
+                              </tr>
+                       </table>
+                  </div>
+            </div>
+      </div>
+
+
+      <script>
+            let link = 'https://randomuser.me/api/';
+
+            fetch(link).then((req)=>{
+                  return req.json()
+            }).then((data)=>{
+                  console.log(data);
+            })
+            
+      </script>
+</body>
+</html>
